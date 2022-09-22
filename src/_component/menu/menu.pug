@@ -1,0 +1,35 @@
+- const menuList = data.menu
+
+nav.menu
+  each item, key in menuList
+    section
+      header.menu__expand
+        div.menu__icon= item.icon
+        h2.menu__title= item.label
+        label(
+          for=`level-one--k-${key}`
+        ).menu__action
+          div(
+            class=`menu-${item.icon}`
+          )
+
+      if item.type === 'expand'
+        input(
+          type="checkbox"
+          name="level-1"
+          id=`level-one--k-${key}`
+        )
+        nav.menu__expandable
+          each subItem in item.children
+            a(
+              href=subItem.href
+              target=subItem.target
+              title=`Click here to see more about ${subItem.label}`
+            )
+              div= subItem.icon
+              b= subItem.label
+              div= subItem.type
+              i= subItem.href
+              div(
+                class=`menu-${subItem.icon}`
+              )

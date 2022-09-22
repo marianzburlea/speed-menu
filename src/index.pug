@@ -1,4 +1,12 @@
 extends _component/layout/base
 
 block awesome-content
-  include _component/test/test
+  .body
+    iframe(
+      src="hi.html"
+      frameborder="0"
+      width="100%"
+      height="100%"
+      name="aici"
+    ) 
+  include _component/menu/menu
